@@ -1,0 +1,15 @@
+<div class="row mt-3">
+
+  <h1>Add your new restaurant</h1>
+
+  <%= simple_form_for(@restaurant) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :category %>
+    <%= f.submit class: 'btn btn-primary', value: "Add Restaurant"%>
+  <% end %>
+
+  <div class="col-2">
+    <%= link_to "Back to Homepage", restaurants_path, class: 'btn btn-primary mt-3' %>
+  </div>
+</div>
