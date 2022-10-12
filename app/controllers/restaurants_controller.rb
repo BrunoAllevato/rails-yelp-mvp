@@ -9,8 +9,11 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    @restautrant.save
-    redirect_to restaurant_path(@restaurant)
+    if @restaurant.save
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -25,9 +28,11 @@ class RestaurantsController < ApplicationController
 
   # end
 
-  # def destroy
-
-  # end
+  def destroy
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.destroy
+    redirect_to restaurants_path
+  end
 
   private
 
