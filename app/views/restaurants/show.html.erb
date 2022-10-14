@@ -16,7 +16,12 @@
   <p><%= link_to "Add Review", new_restaurant_review_path(@restaurant), class: 'btn btn-danger' %></p>
   <ul class="list-group">
     <% @restaurant.reviews.each do |review| %>
-      <li class="list-group-item"><%= review.content %></li>
+      <li class="list-group-item">
+        <%= review.content %>
+        <%= link_to review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+          <i class="fa-solid fa-trash opacity-75 link-secondary"></i>
+        <% end %>
+      </li>
     <% end %>
   </ul>
   <br>
