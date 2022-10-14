@@ -5,8 +5,9 @@
   <%= simple_form_for(@restaurant) do |f| %>
     <%= f.input :name %>
     <%= f.input :address %>
-    <%= f.input :category %>
-    <%= f.submit class: 'btn btn-primary', value: "Add Restaurant"%>
+    <%= f.input :phone_number %>
+    <%= f.input :category, collection: Restaurant::CATEGORY %>
+    <%= f.submit class: 'btn btn-warning', value: "Add Restaurant"%>
   <% end %>
 
   <div class="col-2">

@@ -8,13 +8,13 @@
 # puts "Cleaning database"
 # Restaurant.destroy_all
 
-# 5.times do
-#   restaurant = Restaurant.create(
-#     name: Faker::Restaurant.name,
-#     address: Faker::Address.street_name,
-#     category: CATEGORY.sample
-#   )
-#   puts "Restaurant with id: #{restaurant.id} has been created"
-# end
+5.times do
+  restaurant = Restaurant.create(
+    name: Faker::Restaurant.name,
+    address: Faker::Address.street_name,
+    category: ["chinese", "italian", "japanese", "french", "belgian"].sample
+  )
+  puts "Restaurant with id: #{restaurant.id} has been created"
+end
 
-# puts "Finished!"
+puts "Finished!"
